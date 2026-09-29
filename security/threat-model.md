@@ -22,21 +22,43 @@ The main components of the NodeGoat system are:
 
 
 
-\* User/browser
+\* User / Browser
 
 \* NodeGoat web application
 
-\* Node.js/Express application server
+\* Node.js / Express application server
 
 \* MongoDB database
 
 
 
-The basic data flow is:
+\### Basic Data Flow
 
 
 
-User/Browser → NodeGoat Web Application → MongoDB
+```text
+
+User / Browser
+
+&#x20;     |
+
+&#x20;     v
+
+NodeGoat Web Application
+
+&#x20;     |
+
+&#x20;     v
+
+Node.js / Express
+
+&#x20;     |
+
+&#x20;     v
+
+MongoDB Database
+
+```
 
 
 
@@ -114,35 +136,35 @@ Likelihood and impact are rated from 1 to 5.
 
 
 
-Likelihood:
+\### Likelihood
 
 
 
-1 = Very Low
+\* \*\*1\*\* = Very Low
 
-2 = Low
+\* \*\*2\*\* = Low
 
-3 = Medium
+\* \*\*3\*\* = Medium
 
-4 = High
+\* \*\*4\*\* = High
 
-5 = Very High
-
-
-
-Impact:
+\* \*\*5\*\* = Very High
 
 
 
-1 = Very Low
+\### Impact
 
-2 = Low
 
-3 = Medium
 
-4 = High
+\* \*\*1\*\* = Very Low
 
-5 = Very High
+\* \*\*2\*\* = Low
+
+\* \*\*3\*\* = Medium
+
+\* \*\*4\*\* = High
+
+\* \*\*5\*\* = Very High
 
 
 
@@ -150,7 +172,7 @@ Risk is calculated as:
 
 
 
-Risk = Likelihood × Impact
+\*\*Risk = Likelihood × Impact\*\*
 
 
 
@@ -158,15 +180,15 @@ The identified risks are:
 
 
 
-\* T1 Spoofing: 3 × 4 = 12
+\* \*\*T1 Spoofing:\*\* 3 × 4 = 12
 
-\* T2 Tampering: 3 × 4 = 12
+\* \*\*T2 Tampering:\*\* 3 × 4 = 12
 
-\* T3 Information Disclosure: 4 × 5 = 20
+\* \*\*T3 Information Disclosure:\*\* 4 × 5 = 20
 
-\* T4 Elevation of Privilege: 3 × 5 = 15
+\* \*\*T4 Elevation of Privilege:\*\* 3 × 5 = 15
 
-\* T5 Denial of Service: 3 × 4 = 12
+\* \*\*T5 Denial of Service:\*\* 3 × 4 = 12
 
 
 
@@ -206,7 +228,19 @@ The threats identified above will be compared with the five vulnerabilities demo
 
 
 
-For each confirmed vulnerability, the team will document the vulnerable behavior, demonstrate the exploit, implement the security fix, and repeat the same exploit to verify that the vulnerability has been mitigated.
+For each confirmed vulnerability, the team will document:
+
+
+
+1\. The vulnerable behavior
+
+2\. The exploit procedure
+
+3\. The security fix
+
+4\. The same exploit repeated after the fix
+
+5\. Evidence showing that the vulnerability has been mitigated
 
 
 
