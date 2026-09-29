@@ -56,6 +56,15 @@ function UserDAO(db) {
 
     this.validateLogin = (userName, password, callback) => {
 
+        // Fix for NoSQL Injection (A03:2021 - Injection)
+        // Reject non-string input before it reaches the MongoDB query,
+        // since MongoDB interprets object operands (e.g. {"$ne": null}) as query operators.
+        if (typeof userName !== "string" || typeof password !== "string") {
+            const invalidInputError = new Error("Invalid input type");
+            invalidInputError.noSuchUser = true; // reuse existing error path/UI message
+            return callback(invalidInputError, null);
+        }
+
         // Helper function to compare passwords
         const comparePassword = (fromDB, fromUser) => {
             return fromDB === fromUser;
