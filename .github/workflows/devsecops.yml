@@ -16,9 +16,20 @@ jobs:
     name: Build Application
     runs-on: ubuntu-latest
 
+    env:
+      NODEGOAT_SESSION_SECRET: ${{ secrets.NODEGOAT_SESSION_SECRET }}
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Verify required secret is configured
+        run: |
+          if [ -z "$NODEGOAT_SESSION_SECRET" ]; then
+            echo "Required GitHub Actions secret is not configured."
+            exit 1
+          fi
+          echo "Required GitHub Actions secret is configured."
 
       - name: Build Docker image
         run: docker build -t nodegoat:${{ github.sha }} .
