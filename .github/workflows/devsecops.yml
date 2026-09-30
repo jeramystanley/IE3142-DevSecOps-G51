@@ -34,6 +34,24 @@ jobs:
       - name: Build Docker image
         run: docker build -t nodegoat:${{ github.sha }} .
 
+  test:
+    name: Automated Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '12'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run automated tests
+        run: npm test
 
   sast:
     name: SAST - Semgrep
